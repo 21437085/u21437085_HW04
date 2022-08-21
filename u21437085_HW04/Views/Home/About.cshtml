@@ -1,7 +1,108 @@
 ﻿@{
     ViewBag.Title = "About";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
 
-<p>Use this area to provide additional information.</p>
+<h2> Music Festival</h2>
+
+<img src="~/Images/music.jpg" alt="music" style="width: 400px; height: 200px; margin-left: 200px; margin-right: auto;">
+
+
+@using (Html.BeginForm("Contact", "Home", FormMethod.Post))
+{
+    <div class="form-group">
+        <label for="desc">Pre-booking of tickets</label>
+    </div>
+    <div class="form-group">
+        <label for="desc">Name:</label>
+        <textarea class="form-control" id="desc" name="desc" rows="1"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="desc">Surname:</label>
+        <textarea class="form-control" id="desc" name="desc" rows="1"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="desc">Email Address:</label>
+        <textarea class="form-control" id="desc" name="desc" rows="1"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="desc">Music Festival on 29 September 2022 at Loftus Stadium</label>
+    </div>
+    <div class="form-group">
+        <label for="fill">Select tickets</label>
+        <select class="form-control" name="fill" id="fill">
+            <option value="#ff0000">Seated (R250)</option>
+            <option value="#ff8000">Standing (R200)</option>
+            <option value="#ffff00">VIP (R350)</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="stroke">Quantity:</label>
+        <input type="number" min="1" max="10" class="form-control" name="stroke" id="stroke">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+    <div class="section-content">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Surname</th>
+                    <th>Email</th>
+                    <th>Quantity</th>
+                </tr>
+            </thead>
+            <tbody id="donations"></tbody>
+        </table>
+    </div>
+
+
+    <script>
+        var name = [];
+        var surname = [];
+        var email = [];
+        var quantity = [];
+
+        function addDonation() {
+            var names = document.querySelector("#names").value;
+
+            var surnames = document.querySelector("#surnames").value;
+
+            var emails = document.querySelector("#emails").value;
+
+            var quantitys = document.querySelector("#quantitys").value;
+
+            document.querySelector("#names").value = "";
+
+            document.querySelector("#surnames").value = "";
+
+            document.querySelector("#emails").value = "";
+
+            document.querySelector("#quantitys").value = "";
+
+            donations.push({ name: mnames, surname: surnames, email: emails , quantity: quantitys});
+
+            console.log(donations);
+
+            updatedonations();
+        }
+
+
+        function updatedonations() {
+            var tableBody = document.querySelector("#donations");
+
+            tableBody.innerHTML = " ";
+
+            for (var i = 0; i < donations.length; i++) {
+                tableBody.innerHTML +=
+                    `<tr>` +
+                `<td>${donations[i].name}</td>` +
+                `<td>${donations[i].surname}</td>` +
+                `<td>${donations[i].email}</td>` +
+                `<td>${donations[i].quantity}</td>` +
+                    `</tr>`;
+            }
+        }
+    </script>
+}
+

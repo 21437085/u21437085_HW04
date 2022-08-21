@@ -26,5 +26,21 @@ namespace u21437085_HW04.Controllers
 
             return View();
         }
+        public ActionResult Viewd()
+        {
+            
+
+            return View();
+        }
+
+        public ActionResult Views()
+        {
+
+
+            return View();
+        }
+
+
+
     }
 }

@@ -1,11 +1,13 @@
-﻿@{
-    ViewBag.Title = "Contact";
+﻿
+@{
+    ViewBag.Title = "View";
 }
-<h2>Sanitary Products Donation</h2>
 
-<img src="~/Images/sanitarypads.jpg" alt="sanitarypads" style="width: 400px; height: 200px; margin-left: 200px; margin-right: auto;">
+<h2>Canned Food Donation</h2>
 
-@using (Html.BeginForm("Contact", "Home", FormMethod.Post))
+<img src="~/Images/cannedfood.jpg" alt="cannedfood" style="width: 400px; height: 200px; margin-left: 200px; margin-right: auto;">
+
+@using (Html.BeginForm("Viewd", "Home", FormMethod.Post))
 {
     <div class="form-group">
         <label for="desc">Name:</label>
@@ -20,18 +22,18 @@
         <textarea class="form-control" id="desc" name="desc" rows="1"></textarea>
     </div>
     <div class="form-group">
-        <label for="fill">Select the sanitary product you wish to donate:</label>
+        <label for="fill">Select the canned category you wish to donate:</label>
         <select class="form-control" name="fill" id="fill">
-            <option value="#ff0000">Pads</option>
-            <option value="#ff8000">Tampons</option>
-            <option value="#ffff00">Menstural cups</option>
-            <option value="#40ff00">Sanitary wipes</option>
-            <option value="#00ffff">Pantyliners</option>
+            <option value="#ff0000">Canned Fruits</option>
+            <option value="#ff8000">Canned Vegetables</option>
+            <option value="#ffff00">Canned Grains</option>
+            <option value="#40ff00">Canned Dairy</option>
+            <option value="#00ffff">Canned Protein</option>
         </select>
     </div>
     <div class="form-group">
         <label for="stroke">Quantity:</label>
-        <input type="number" min="1" max="100" class="form-control" name="stroke" id="stroke">
+        <input type="number" min="1" max="50" class="form-control" name="stroke" id="stroke">
     </div>
 
     <button type="submit" class="btn btn-primary">Submit</button>
@@ -50,7 +52,7 @@
             <tbody id="donations"></tbody>
         </table>
     </div>
-   
+
 
     <script>
         var name = [];
@@ -105,6 +107,4 @@
             }
         }
     </script>
-
 }
-
